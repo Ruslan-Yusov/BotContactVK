@@ -3,7 +3,10 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-load_dotenv("../resources/config.env")
+
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env_path = os.path.join(base_dir, 'resources', 'config.env')
+load_dotenv(env_path)
 
 db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")

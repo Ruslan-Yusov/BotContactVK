@@ -1,3 +1,4 @@
+# database/models/user.py
 from sqlalchemy import Column, Integer, BigInteger, String
 from sqlalchemy.orm import relationship
 from database.connection import Base
@@ -12,6 +13,8 @@ class User(Base):
     age = Column(Integer, nullable=True)
     sex = Column(String(10), nullable=True)
 
+    
     search_results = relationship("SearchResult", back_populates="user", cascade="all, delete-orphan")
     favorites = relationship("FavoriteUser", back_populates="user", cascade="all, delete-orphan")
     blacklist = relationship("Blacklist", back_populates="user", cascade="all, delete-orphan")
+    
